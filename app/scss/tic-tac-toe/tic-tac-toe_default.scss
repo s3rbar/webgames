@@ -1,0 +1,100 @@
+body#tic-tac-toe{
+    width: 100%;
+    display: flex;
+    aside{
+        position: absolute;
+        width: 60px;
+        height: 95vh;
+        padding: 16px 0 0 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .home-link{
+            height: 60px;
+            width: inherit;
+            img{
+                height: inherit;
+                width: inherit;
+            }
+        }
+        section{
+            width: inherit;
+            height: 136px;
+            gap: 16px;
+            display: flex;
+            flex-direction: column;
+            img{
+                width: inherit;
+                cursor: pointer;
+            }
+        }
+    }
+    main{
+        width: calc(100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1, h2{
+            margin: 12px 0 0 0;
+        }
+        .score{
+            margin: 12px 0 0 0;
+        }
+        .field{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            margin-top: 24px;
+            background-color: #fff;
+            &__square{
+                width: 120px;
+                height: 120px;
+                box-sizing: border-box;
+                background-color: #001F3F;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                .cross{
+                    width: inherit;
+                    height: inherit;
+                    position: relative;
+                    top: 42px;
+                    div{
+                        width: 120px;
+                        height: 8px;
+                        border-radius: 10px;
+                        background-color: #fff;
+                    }
+                    .l{
+                        position: relative;
+                        top: 8px;
+                        transform: rotate(45deg);
+                    }
+                    .r{
+                        transform: rotate(135deg);
+                    }
+                }
+                .circle{
+                    background-color:#001F3F;
+                    border: 8px solid #fff;    
+                    height: 80px;
+                    width: 80px;
+                    border-radius:50%;
+                    -moz-border-radius:50%;
+                    -webkit-border-radius:50%;
+                }
+            }
+        }
+        .reset{
+            background-color: #5DD56B;
+            border: none;
+            color: #fff;
+            padding: 10px 8px;
+            margin-top: 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+}

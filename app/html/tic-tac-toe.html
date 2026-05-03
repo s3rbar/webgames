@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../../images/brubik.png">
-    <link rel="stylesheet" href="dist/index.css">
+    <link rel="stylesheet" href="../../dist/index.css">
     <title>Хрестики-нулики</title>
 </head>
-<body>
-    
+<body id="tic-tac-toe">
+    <aside>
+        <a class="home-link" href="../../index.html">
+            <img src="../../images/wrubik.png" alt="Logo">
+        </a>
+        <section>
+            <img src="../../images/question.png" alt="Info">
+            <img src="../../images/settings.png" alt="Settings">
+        </section>
+    </aside>
+    <main>
+        <h1>Хрестики-нулики</h1>
+        <h2>Хід хрестиків</h2>
+        <section class="score">
+            <span>Хрестики: n перемог</span>
+            <span> | </span>
+            <span>Нулики: n перемог</span>
+        </section>
+        <section class="field">
+            <div class="field__square b-right b-bottom">
+                <div class="cross">
+                    <div class="l"></div>
+                    <div class="r"></div>
+                </div>
+            </div>
+            <div class="field__square"></div>
+            <div class="field__square"></div>
+            <div class="field__square"></div>
+            <div class="field__square b-right b-bottom b-top b-left">
+                <div class="circle"></div>
+            </div>
+            <div class="field__square"></div>
+            <div class="field__square"></div>
+            <div class="field__square"></div>
+            <div class="field__square"></div>
+        </section>
+        <button class="reset">Почати спочатку</button>
+    </main>
 </body>
 </html>
