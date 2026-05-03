@@ -6,11 +6,15 @@ const terser = require('gulp-terser');
 const browsersync = require('browser-sync').create();
 
 // Sass Task
-function scssTask(){
-  return src('app/scss/index.scss', { sourcemaps: true })
-    .pipe(sass())
-    .pipe(postcss([cssnano()]))
-    .pipe(dest('dist', { sourcemaps: '.' }));
+function scssTask() {
+  return new Promise((resolve, reject) => {
+    src('app/scss/index.scss', { sourcemaps: true })
+      .pipe(sass().on('error', reject))
+      .pipe(postcss([cssnano()]))
+      .pipe(dest('dist', { sourcemaps: '.' }))
+      .on('end', resolve)
+      .on('error', reject);
+  });
 }
 
 // JavaScript Task

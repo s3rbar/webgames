@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"index.css"}
+{"version":3,"sources":["boilerplate.scss","index.css"],"names":[],"mappings":"AAAA,KACI,wBCCJ","file":"index.css","sourcesContent":["body{\r\n    background-color: #001F3F;\r\n}","body {\n  background-color: #001F3F;\n}"]}
