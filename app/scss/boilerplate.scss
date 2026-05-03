@@ -1,3 +1,16 @@
 body{
     background-color: #001F3F;
+    color: #fff;
+}
+
+ul{
+    padding: 0;
+    li{
+        list-style: none;
+    }
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
 }
