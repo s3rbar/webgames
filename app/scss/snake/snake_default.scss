@@ -17,6 +17,29 @@ body#snake{
             div{
                 width: 30px;
                 height: 30px;
+                img[alt="apple"]{
+                    width: 30px;
+                }
+                .snake-body, .snake-head{
+                    height: inherit;
+                    background-color: #0994DF;
+                }
+                .snake-body{
+                    width: 29px;
+                    border-right: 1px solid #000;
+                }
+                .snake-head{
+                    width: inherit;
+                    display: flex;
+                    justify-content: space-evenly;
+                    .snake-eye{
+                        margin-top: 15%;
+                        width: 20%;
+                        height: 40%;
+                        border-radius: 60%;
+                        background-color: #000;
+                    }
+                }
             }
             div:nth-child(even){
                 background-color: #09DF2A;
