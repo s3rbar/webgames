@@ -1,0 +1,13 @@
+body#snake{
+    width: 100%;
+    display: flex;
+    main{
+        width: calc(100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1, h2{
+            margin: 12px 0 0 0;
+        }
+    }
+}

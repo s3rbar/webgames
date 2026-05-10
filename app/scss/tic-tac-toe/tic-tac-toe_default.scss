@@ -1,34 +1,6 @@
 body#tic-tac-toe{
     width: 100%;
     display: flex;
-    aside{
-        position: absolute;
-        width: 60px;
-        height: 95vh;
-        padding: 16px 0 0 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .home-link{
-            height: 60px;
-            width: inherit;
-            img{
-                height: inherit;
-                width: inherit;
-            }
-        }
-        section{
-            width: inherit;
-            height: 136px;
-            gap: 16px;
-            display: flex;
-            flex-direction: column;
-            img{
-                width: inherit;
-                cursor: pointer;
-            }
-        }
-    }
     main{
         width: calc(100%);
         display: flex;
