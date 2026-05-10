@@ -9,5 +9,21 @@ body#snake{
         h1, h2{
             margin: 12px 0 0 0;
         }
+        .field{
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: repeat(17, 1fr);
+            grid-template-rows: repeat(15, 30px);
+            div{
+                width: 30px;
+                height: 30px;
+            }
+            div:nth-child(even){
+                background-color: #09DF2A;
+            }
+            &:nth-child(odd){
+                background-color: #11FF34;
+            }
+        }
     }
 }
