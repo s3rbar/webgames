@@ -1,0 +1,62 @@
+body#tetris{
+    main{
+        .content{
+            display: flex;
+            margin-left: 240px;
+            width: 440px;
+            justify-content: space-between;
+            .field{
+                margin-top: 12px;
+                width: 202px;
+                height: 402px;
+                background-color: rgba(0, 0, 0, 0.2);
+                display: grid;
+                grid-template-columns: repeat(10, 20px);
+                grid-template-rows: repeat(20, 20px);
+                div{
+                    width: 18px;
+                    height: 18px;
+                    background-color: #001773;
+                    margin: 2px 0 0 2px;
+                }
+            }
+            .next_pieces{
+                width: 200px;
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                img{
+                    width: 60px;
+                    margin-bottom: 10px;
+                }
+                img[alt="square"]{
+                    width: 45px;
+                }
+                img[alt="Ip"]{
+                    width: 90px;
+                }
+            }
+        }
+        .controls{
+            margin-top: 12px;
+            width: 220px;
+            display: flex;
+            justify-content: space-around;
+            *{
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+            .arrow-border{
+                border: 1px solid #fff;
+                border-radius: 50%;
+            }
+            img[alt="arrow-left"]{
+                transform: rotate(180deg);
+            }
+            img[alt="arrow-down"]{
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
