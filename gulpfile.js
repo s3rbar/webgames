@@ -17,13 +17,6 @@ function scssTask() {
   });
 }
 
-// JavaScript Task
-function jsTask(){
-  return src('app/js/app.js', { sourcemaps: true })
-    .pipe(terser())
-    .pipe(dest('dist', { sourcemaps: '.' }));
-}
-
 // Browsersync Tasks
 function browsersyncServe(cb){
   browsersync.init({
@@ -42,13 +35,12 @@ function browsersyncReload(cb){
 // Watch Task
 function watchTask(){
   watch(['*.html', 'app/html/**/*.html'], browsersyncReload);
-  watch(['app/scss/**/*.scss', 'app/js/**/*.js'], series(scssTask, jsTask, browsersyncReload));
+  watch(['app/scss/**/*.scss'], series(scssTask, browsersyncReload));
 }
 
 // Default Gulp task
 exports.default = series(
   scssTask,
-  jsTask,
   browsersyncServe,
   watchTask
 );

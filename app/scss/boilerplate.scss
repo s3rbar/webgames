@@ -38,10 +38,10 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
-        h1, h2{
+        h1, h2, h3{
             margin: 6px 0 0 0;
         }
-        .field{ // makes unsellectable
+        .field{
             user-select: none;
             -moz-user-select: none;
             -khtml-user-select: none;
