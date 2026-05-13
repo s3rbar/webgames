@@ -1,3 +1,9 @@
+function toggleRules(){
+    document.querySelector('main').classList.toggle("translucent");
+    document.querySelector('aside').classList.toggle("translucent");
+    document.querySelector('.rules').classList.toggle("hide");
+}
+
 function generateMSField(){};
 
 function tileCheck(tile, isFirstClick){};

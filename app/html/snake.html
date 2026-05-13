@@ -13,7 +13,7 @@
             <img src="../../images/wrubik.png" alt="Logo">
         </a>
         <section>
-            <img src="../../images/question.png" alt="Info">
+            <img onclick="toggleRules()" src="../../images/question.png" alt="Info">
         </section>
     </aside>
     <main>
@@ -281,5 +281,16 @@
         </section>
         <button class="reset">Почати спочатку</button>
     </main>
+    <section class="rules hide">
+        <div class="top">
+            <h3>Правила гри</h3>
+            <button onclick="toggleRules()" class="close_rules">Закрити</button>
+        </div>
+        <ul>
+            <li>- Для руку натискайте клавіші стрілочок</li>
+            <li>- Змійка зростає після з'їдання яблука</li>
+        </ul>
+    </section>
+    <script src="../js/snake.js"></script>
 </body>
 </html>

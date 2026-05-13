@@ -13,7 +13,7 @@
             <img src="../../images/wrubik.png" alt="Logo">
         </a>
         <section>
-            <img src="../../images/question.png" alt="Info">
+            <img onclick="toggleRules()" src="../../images/question.png" alt="Info">
         </section>
     </aside>
     <main>
@@ -46,6 +46,16 @@
         </section>
         <button id="reset" class="reset">Почати спочатку</button>
     </main>
+    <section class="rules hide">
+        <div class="top">
+            <h3>Правила гри</h3>
+            <button onclick="toggleRules()" class="close_rules">Закрити</button>
+        </div>
+        <ul>
+            <li>- Нулики ходять перші</li>
+            <li>- В гру можна грати лише на одному пристрої</li>
+        </ul>
+    </section>
     <script src="../js/tic-tac-toe.js"></script>
 </body>
 </html>

@@ -1,3 +1,9 @@
+function toggleRules(){
+    document.querySelector('main').classList.toggle("translucent");
+    document.querySelector('aside').classList.toggle("translucent");
+    document.querySelector('.rules').classList.toggle("hide");
+}
+
 let boxes = [...document.querySelectorAll('.field__square')];
 let resetBtn = document.querySelector('#reset');
 let turnO = true;
