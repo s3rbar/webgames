@@ -1,42 +1,55 @@
-body#snake{    
-    main{
-        .field{
-            margin-top: 12px;
-            display: grid;
-            grid-template-columns: repeat(17, 1fr);
-            grid-template-rows: repeat(15, 30px);
-            div{
+body#snake {
+    main {
+        #field {
+            position: relative; // Це "якір" для змії та яблука
+            width: 510px;       // 17 стовпців * 30px
+            height: 450px;      // 15 рядків * 30px
+            margin: 12px auto;
+            background-color: #11FF34;
+            background-size: 60px 60px;
+            background-image: conic-gradient(
+                #09DF2A 90deg, 
+                transparent 90deg 180deg, 
+                #09DF2A 180deg 270deg, 
+                transparent 270deg
+            );
+            border: 2px solid #27ae60;
+            overflow: hidden;
+
+            // Стилі для ігрових об'єктів (винесені з-під зайвих div)
+            .apple-img, .snake-head, .snake-body {
+                position: absolute;
+                box-sizing: border-box;
                 width: 30px;
                 height: 30px;
-                img[alt="apple"]{
-                    width: 30px;
-                }
-                .snake-body, .snake-head{
-                    height: inherit;
-                    background-color: #0994DF;
-                }
-                .snake-body{
-                    width: 29px;
-                    border-right: 1px solid #000;
-                }
-                .snake-head{
-                    width: inherit;
-                    display: flex;
-                    justify-content: space-evenly;
-                    .snake-eye{
-                        margin-top: 15%;
-                        width: 20%;
-                        height: 40%;
-                        border-radius: 60%;
-                        background-color: #000;
-                    }
-                }
+                z-index: 5;
             }
-            div:nth-child(even){
-                background-color: #09DF2A;
+
+            .apple-img {
+                display: block; // Щоб картинка точно відобразилась
             }
-            &:nth-child(odd){
-                background-color: #11FF34;
+
+            .snake-head, .snake-body {
+                background-color: #0994DF;
+            }
+
+            .snake-body {
+                box-sizing: border-box;
+                border-right: 1px solid #000;
+            }
+
+            .snake-head {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+
+                .snake-eye {
+                    margin-top: 15%;
+                    width: 6px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: #000;
+                }
             }
         }
     }
