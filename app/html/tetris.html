@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body id="tetris">
+    
     <aside>
         <a class="home-link" href="../../index.html">
             <img src="../../images/wrubik.png" alt="Logo">
@@ -22,206 +23,7 @@
         
         <section class="content">
             <section class="field">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <canvas id="game"></canvas>
             </section>
             <section class="next_pieces">
                 <h3>Порядок появи</h3>
@@ -234,12 +36,14 @@
                 <img src="../../images/tetris_pieces/Ip.png" alt="Ip">
             </section>
         </section>
+
         <section class="controls">
-            <img class="arrow-border" src="../../images/arrow.png" alt="arrow-left">
-            <img class="arrow-border" src="../../images/arrow.png" alt="arrow-right">
-            <img class="arrow-border" src="../../images/arrow.png" alt="arrow-down">
-            <img src="../../images/tetris-rotate.png" alt="rotate">
+            <img id="ctrl-left" class="arrow-border" src="../../images/arrow.png" alt="arrow-left" style="transform: rotate(180deg);">
+            <img id="ctrl-right" class="arrow-border" src="../../images/arrow.png" alt="arrow-right">
+            <img id="ctrl-down" class="arrow-border" src="../../images/arrow.png" alt="arrow-down" style="transform: rotate(90deg);">
+            <img id="ctrl-rotate" src="../../images/tetris-rotate.png" alt="rotate">
         </section>
+        
         <button class="reset">Почати спочатку</button>
     </main>
     <section class="rules hide">
@@ -253,6 +57,7 @@
             <li>- Вігури з'являтимуться в порядку вказаному на зображенні</li>
         </ul>
     </section>
-    <script src="../js/tetris.js"></script>
 </body>
+<script src='classic-tetris.js'></script>
+<script src="../js/tetris.js"></script>
 </html>
