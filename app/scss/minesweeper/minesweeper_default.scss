@@ -28,7 +28,7 @@ body#minesweeper{
                     height: inherit;
                 }
             }
-            div:nth-child(-n + 3){
+            .cell.revealed{
                 background-color: #fff;
             }
         }
