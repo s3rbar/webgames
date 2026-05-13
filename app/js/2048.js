@@ -3,8 +3,6 @@ function toggleRules(){
     document.querySelector('aside').classList.toggle("translucent");
     document.querySelector('.rules').classList.toggle("hide");
 }
-
-
 const gridItems = [
     ...document.querySelectorAll(".grid-item"),
 ];
@@ -49,7 +47,6 @@ for (let index = 1; index < gridItems.length + 1; index++) {
     }
 }
 
-// Assign two blocks the value of 2
 const rowIdx = Math.floor(Math.random() * 4);
 const colIdx = Math.floor(Math.random() * 4);
 let rowIdx2 = Math.floor(Math.random() * 4);
@@ -356,10 +353,8 @@ function resetGame() {
         rowIdx2 = Math.floor(Math.random() * 4);
         colIdx2 = Math.floor(Math.random() * 4);
     }
-
     matrix[rowIdx][colIdx].firstElementChild.textContent = 2;
     matrix[rowIdx2][colIdx2].firstElementChild.textContent = 2;
-
     availIndexes = updateAvailIndexes();
     updateColors();
 }

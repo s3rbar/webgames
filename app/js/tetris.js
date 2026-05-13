@@ -1,26 +1,17 @@
-/**
- * Функція для модального вікна правил
- */
+
 function toggleRules() {
     document.querySelector('main').classList.toggle("translucent");
     document.querySelector('aside').classList.toggle("translucent");
     document.querySelector('.rules').classList.toggle("hide");
 }
-
-/**
- * Основні налаштування гри
- */
 const canvas = document.getElementById('game');
 const context = canvas.getContext('2d');
 const scoreSpan = document.querySelector('h2 span');
 const resetBtn = document.querySelector('.reset');
 
-// Розміри клітинок (22px)
 const grid = 22; 
 const columnCount = 10;
 const rowCount = 20;
-
-// Встановлюємо розміри canvas програмно
 canvas.width = columnCount * grid;
 canvas.height = rowCount * grid;
 
@@ -32,13 +23,11 @@ let tetromino = null;
 let rAF = null;
 let gameOver = false;
 
-// Кольори фігур
 const colors = {
     'I': '#FFAE00', 'O': '#00D0FF', 'T': '#00FFAA',
     'S': '#0D00FF', 'Z': '#FF00C8', 'J': '#D4FF00', 'L': '#FF0000'
 };
 
-// Матриці фігур
 const tetrominos = {
     'I': [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
     'J': [[1,0,0],[1,1,1],[0,0,0]],
@@ -49,12 +38,7 @@ const tetrominos = {
     'T': [[0,1,0],[1,1,1],[0,0,0]]
 };
 
-/**
- * Логіка появи фігур (Циклічна, не випадкова)
- */
 function generateSequence() {
-    // Порядок згідно з картинками: Lp1(L), Lp2(J), Tp(T), square(O), Sp1(S), Sp2(Z), Ip(I)
-    // Використовуємо reverse, бо pop() бере з кінця масиву
     const order = ['I', 'Z', 'S', 'O', 'T', 'L', 'J']; 
     tetrominoSequence = [...order];
 }
@@ -67,16 +51,12 @@ function getNextTetromino() {
     const name = tetrominoSequence.pop();
     const matrix = tetrominos[name];
 
-    // Центрування
     const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2);
     const row = name === 'I' ? -1 : -2;
 
     return { name, matrix, row, col };
 }
 
-/**
- * Допоміжні функції механіки
- */
 function rotate(matrix) {
     const N = matrix.length - 1;
     return matrix.map((row, i) => row.map((val, j) => matrix[N - j][i]));
@@ -96,9 +76,6 @@ function isValidMove(matrix, cellRow, cellCol) {
     return true;
 }
 
-/**
- * Візуалізація сітки
- */
 function drawGrid() {
     context.strokeStyle = '#000033'; // Темна сітка (колишній фон)
     context.lineWidth = 1;
@@ -174,20 +151,13 @@ function resetGame() {
     rAF = requestAnimationFrame(loop);
 }
 
-/**
- * Головний цикл
- */
 function loop() {
     rAF = requestAnimationFrame(loop);
     context.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Світліший фон (колишній колір сітки)
     context.fillStyle = '#000080'; 
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     drawGrid();
-
-    // Зафіксовані блоки
     for (let r = 0; r < rowCount; r++) {
         for (let c = 0; c < columnCount; c++) {
             if (playfield[r][c]) {
@@ -197,7 +167,6 @@ function loop() {
         }
     }
 
-    // Активна фігура
     if (tetromino) {
         if (++count > 40) {
             tetromino.row++;
@@ -219,9 +188,6 @@ function loop() {
     }
 }
 
-/**
- * Керування та ініціалізація
- */
 const actions = {
     left: () => {
         if (isValidMove(tetromino.matrix, tetromino.row, tetromino.col - 1)) tetromino.col--;

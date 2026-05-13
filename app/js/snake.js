@@ -23,36 +23,27 @@ let gameOver = false;
 
 window.onload = function () {
     field = document.querySelector("#field");
-    // Встановлюємо розміри поля
     field.style.width = (total_col * blockSize) + "px";
     field.style.height = (total_row * blockSize) + "px";
 
-    // Тепер ця функція точно існує нижче
     placeFood();
-    
     document.addEventListener("keyup", changeDirection);
     
-    // Запускаємо ігровий цикл
     setInterval(update, 1000 / 10);
-
     document.querySelector(".reset").onclick = () => location.reload();
 }
 
 function update() {
     if (gameOver) return;
-
-    field.innerHTML = ""; // Очищаємо поле перед кожним кадром
-
-    // 1. Малюємо їжу (яблуко)
+    field.innerHTML = "";
     let foodElement = document.createElement("img");
-    foodElement.src = "../../images/apple.png"; // Перевірте цей шлях!
+    foodElement.src = "../../images/apple.png";
     foodElement.alt = "apple";
     foodElement.className = "apple-img";
     foodElement.style.left = foodX + "px";
     foodElement.style.top = foodY + "px";
     field.appendChild(foodElement);
 
-    // 2. Перевірка на поїдання
     if (snakeX === foodX && snakeY === foodY) {
         snakeBody.push([foodX, foodY]);
         score++;
@@ -60,7 +51,6 @@ function update() {
         placeFood();
     }
 
-    // 3. Рух тіла
     for (let i = snakeBody.length - 1; i > 0; i--) {
         snakeBody[i] = snakeBody[i - 1];
     }
@@ -68,11 +58,9 @@ function update() {
         snakeBody[0] = [snakeX, snakeY];
     }
 
-    // 4. Оновлення позиції голови
     snakeX += speedX * blockSize;
     snakeY += speedY * blockSize;
 
-    // 5. Малюємо голову
     let head = document.createElement("div");
     head.className = "snake-head";
     head.style.left = snakeX + "px";
@@ -80,21 +68,15 @@ function update() {
     head.innerHTML = `<div class="snake-eye"></div><div class="snake-eye"></div>`;
     field.appendChild(head);
 
-    // 6. Малюємо частини тіла
-    // Усередині функції update() при малюванні тіла:
     snakeBody.forEach((part, index) => {
         let bodyPart = document.createElement("div");
         bodyPart.className = "snake-body";
         bodyPart.style.left = part[0] + "px";
         bodyPart.style.top = part[1] + "px";
 
-        // Визначаємо, де знаходиться попередній елемент (голова або інша частина тіла)
         let prev = (index === 0) ? [snakeX, snakeY] : snakeBody[index - 1];
-
-        // Очищаємо бордери за замовчуванням
         bodyPart.style.border = "none";
 
-        // Малюємо лінію на стику з попереднім елементом
         if (prev[0] > part[0]) { // Рух вправо
             bodyPart.style.borderRight = "1px solid #000";
         } else if (prev[0] < part[0]) { // Рух вліво
@@ -108,7 +90,6 @@ function update() {
         field.appendChild(bodyPart);
     });
 
-    // 7. Перевірка програшу
     if (snakeX < 0 || snakeX >= total_col * blockSize || snakeY < 0 || snakeY >= total_row * blockSize) {
         endGame();
     }
@@ -119,13 +100,9 @@ function update() {
     }
 }
 
-// ОСЬ ЦЯ ФУНКЦІЯ, ЯКОЇ НЕ ВИСТАЧАЛО:
 function placeFood() {
-    // Випадкові координати, кратні blockSize
     foodX = Math.floor(Math.random() * total_col) * blockSize;
     foodY = Math.floor(Math.random() * total_row) * blockSize;
-
-    // Перевірка, щоб яблуко не з'явилося всередині змії
     for (let i = 0; i < snakeBody.length; i++) {
         if (foodX === snakeBody[i][0] && foodY === snakeBody[i][1]) {
             placeFood();

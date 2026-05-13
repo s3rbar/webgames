@@ -106,7 +106,6 @@ const checkWinner = () => {
         }
     }
 
-    // Check for a draw: Are all boxes filled?
     const isDraw = boxes.every(box => box.hasChildNodes());
     
     if (isDraw) {

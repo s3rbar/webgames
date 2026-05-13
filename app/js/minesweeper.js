@@ -7,12 +7,10 @@ function toggleRules() {
 const numRows = 9;
 const numCols = 9;
 const numMines = 10;
-
 const gameBoard = document.querySelector(".field");
 const scoreSpans = document.querySelectorAll(".score span"); // 0 - бомби, 1 - кліки
 const resetBtn = document.querySelector(".reset");
 let msg = document.querySelector(".status");
-
 let board = [];
 let clicks = 0;
 let gameOver = false;
@@ -24,7 +22,6 @@ function initializeBoard() {
     gameOver = false;
     updateStats();
     msg.textContent = "";
-    
     for (let i = 0; i < numRows; i++) {
         board[i] = [];
         for (let j = 0; j < numCols; j++) {
@@ -36,8 +33,6 @@ function initializeBoard() {
             };
         }
     }
-
-    // Розміщення мін
     let minesPlaced = 0;
     while (minesPlaced < numMines) {
         const row = Math.floor(Math.random() * numRows);
@@ -47,8 +42,6 @@ function initializeBoard() {
             minesPlaced++;
         }
     }
-
-    // Розрахунок цифр навколо мін
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < numCols; j++) {
             if (!board[i][j].isMine) {
@@ -87,8 +80,6 @@ function revealAllMines() {
 
 function checkWin() {
     let unrevealedCount = 0;
-
-    // Рахуємо всі закриті клітинки
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < numCols; j++) {
             if (!board[i][j].revealed) {
@@ -96,11 +87,8 @@ function checkWin() {
             }
         }
     }
-
-    // Якщо кількість закритих клітинок дорівнює кількості мін — це перемога
     if (unrevealedCount === numMines) {
         gameOver = true;
-        // Можна також позначити всі міни прапорцями для краси
         setTimeout(() => {
             msg.textContent = "Вітаємо! Ви знешкодили всі міни!";
             msg.style.color = "green";
@@ -121,7 +109,6 @@ function revealCell(row, col) {
         gameOver = true;
         revealAllMines();
         
-        // Використовуємо тайм-аут, щоб браузер встиг відрендерити міни перед алертом
         msg.textContent = "Ви програли";
         msg.style.color = "red";
     } else {
@@ -129,7 +116,6 @@ function revealCell(row, col) {
         updateStats();
 
         if (board[row][col].count === 0) {
-            // Якщо порожня клітинка — відкриваємо сусідні
             for (let dx = -1; dx <= 1; dx++) {
                 for (let dy = -1; dy <= 1; dy++) {
                     revealCell(row + dx, col + dy);
@@ -142,7 +128,6 @@ function revealCell(row, col) {
     renderBoard();
 }
 
-// Функція для встановлення прапорця (ПКМ)
 function toggleFlag(e, row, col) {
     e.preventDefault();
     if (gameOver || board[row][col].revealed) return;
@@ -153,12 +138,10 @@ function toggleFlag(e, row, col) {
 
 function renderBoard() {
     gameBoard.innerHTML = "";
-
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < numCols; j++) {
             const cell = document.createElement("div");
             cell.className = "cell";
-            
             if (board[i][j].revealed) {
                 cell.classList.add("revealed");
                 if (board[i][j].isMine) {
@@ -170,10 +153,8 @@ function renderBoard() {
             } else if (board[i][j].isFlagged) {
                 cell.innerHTML = '<img src="../../images/red-flag.png" alt="flag">';
             }
-
             cell.addEventListener("click", () => revealCell(i, j));
             cell.addEventListener("contextmenu", (e) => toggleFlag(e, i, j));
-            
             gameBoard.appendChild(cell);
         }
     }
