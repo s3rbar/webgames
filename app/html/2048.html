@@ -13,8 +13,7 @@
             <img src="../../images/wrubik.png" alt="Logo">
         </a>
         <section>
-            <img src="../../images/question.png" alt="Info">
-            <img src="../../images/settings.png" alt="Settings">
+            <img onclick="toggleRules();" src="../../images/question.png" alt="Info">
         </section>
     </aside>
     <main>
@@ -71,7 +70,18 @@
                 <p id="16"></p>
             </div>
         </div>
+        <button onclick="resetGame()" class="reset">Почати спочатку</button>
     </main>
+    <section class="rules hide">
+        <div class="top">
+            <h3>Правила гри</h3>
+            <button onclick="toggleRules()" class="close_rules">Закрити</button>
+        </div>
+        <ul>
+            <li>- Для руку натискайте клавіші стрілочок</li>
+            <li>- Ви виграли, якщо створили блок 2048</li>
+        </ul>
+    </section>
     <script src="../js/2048.js"></script>
 </body>
 </html>

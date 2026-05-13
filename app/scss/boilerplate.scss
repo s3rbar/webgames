@@ -23,8 +23,7 @@ body{
         }
         section{
             width: inherit;
-            height: calc(auto + 10px);
-            gap: 16px;
+            height: auto;
             display: flex;
             flex-direction: column;
             img{
@@ -58,6 +57,33 @@ body{
             font-size: 16px;
             cursor: pointer;
         }
+        .reset:focus{
+            border: none;
+        }
+    }
+    .translucent{
+        opacity: 0.5;
+    }
+    .rules{
+        position: absolute;
+        inset: 0;
+        margin: 160px auto auto auto;
+        width: 320px;
+        height: 80px;
+        background-color: white;
+        color: #000;
+        padding: 20px;
+        .top{
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            h3{
+                margin: 0;
+            }
+        }    
+    }
+    .hide {
+        display: none;
     }
 }
 

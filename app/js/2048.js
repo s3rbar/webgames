@@ -1,3 +1,10 @@
+function toggleRules(){
+    document.querySelector('main').classList.toggle("translucent");
+    document.querySelector('aside').classList.toggle("translucent");
+    document.querySelector('.rules').classList.toggle("hide");
+}
+
+
 const gridItems = [
     ...document.querySelectorAll(".grid-item"),
 ];
@@ -327,4 +334,32 @@ function updateColors() {
             }
         }
     }
+}
+
+function resetGame() {
+    score = 0;
+    moves = 0;
+    
+    score_val.innerText = score;
+    result.innerText = "";
+    
+    gridItems.forEach(item => {
+        item.firstElementChild.innerText = "";
+    });
+
+    const rowIdx = Math.floor(Math.random() * 4);
+    const colIdx = Math.floor(Math.random() * 4);
+    let rowIdx2 = Math.floor(Math.random() * 4);
+    let colIdx2 = Math.floor(Math.random() * 4);
+
+    while (rowIdx === rowIdx2 && colIdx === colIdx2) {
+        rowIdx2 = Math.floor(Math.random() * 4);
+        colIdx2 = Math.floor(Math.random() * 4);
+    }
+
+    matrix[rowIdx][colIdx].firstElementChild.textContent = 2;
+    matrix[rowIdx2][colIdx2].firstElementChild.textContent = 2;
+
+    availIndexes = updateAvailIndexes();
+    updateColors();
 }
