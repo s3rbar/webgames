@@ -112,6 +112,7 @@ const checkWinner = () => {
     if (isDraw) {
         msgContainer.classList.remove('hide');
         msg.innerText = 'Нічия';
+        msg.style.color = "#fff";
     }
 };
 
