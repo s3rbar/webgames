@@ -23,7 +23,7 @@ body{
         }
         section{
             width: inherit;
-            height: 136px;
+            height: calc(auto + 10px);
             gap: 16px;
             display: flex;
             flex-direction: column;

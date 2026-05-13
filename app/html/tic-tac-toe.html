@@ -14,36 +14,38 @@
         </a>
         <section>
             <img src="../../images/question.png" alt="Info">
-            <img src="../../images/settings.png" alt="Settings">
         </section>
     </aside>
     <main>
         <h1>Хрестики-нулики</h1>
-        <h2>Хід хрестиків</h2>
         <section class="score">
-            <span>Хрестики: n перемог</span>
+            Хрестики: <span id="Xcount">0</span> перемог
             <span> | </span>
-            <span>Нулики: n перемог</span>
+            Нулики: <span id="Ocount">0</span> перемог
         </section>
+        <div class="msg-container hide">
+            <h3 id="msg">Winner</h3>
+        </div>
         <section class="field">
             <div class="field__square b-right b-bottom">
-                <div class="cross">
+                <!-- <div class="cross">
                     <div class="l"></div>
                     <div class="r"></div>
-                </div>
+                </div> -->
             </div>
             <div class="field__square"></div>
             <div class="field__square"></div>
             <div class="field__square"></div>
             <div class="field__square b-right b-bottom b-top b-left">
-                <div class="circle"></div>
+                <!-- <div class="circle"></div> -->
             </div>
             <div class="field__square"></div>
             <div class="field__square"></div>
             <div class="field__square"></div>
             <div class="field__square"></div>
         </section>
-        <button class="reset">Почати спочатку</button>
+        <button id="reset" class="reset">Почати спочатку</button>
     </main>
+    <script src="../js/tic-tac-toe.js"></script>
 </body>
 </html>

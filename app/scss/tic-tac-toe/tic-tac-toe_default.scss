@@ -1,6 +1,6 @@
 body#tic-tac-toe{
     main{
-        .score{
+        .score, .msg-container{
             margin: 12px 0 0 0;
         }
         .field{
@@ -22,7 +22,6 @@ body#tic-tac-toe{
                     width: inherit;
                     height: inherit;
                     position: relative;
-                    top: 42px;
                     div{
                         width: 120px;
                         height: 8px;
@@ -31,10 +30,12 @@ body#tic-tac-toe{
                     }
                     .l{
                         position: relative;
-                        top: 8px;
+                        top: 50px;
                         transform: rotate(45deg);
                     }
                     .r{
+                        position: relative;
+                        top: 42px;
                         transform: rotate(135deg);
                     }
                 }
@@ -48,6 +49,26 @@ body#tic-tac-toe{
                     -webkit-border-radius:50%;
                 }
             }
+            &__square.unclickable{
+                pointer-events: none;
+            }
+        }
+        #new-btn {
+            padding: 1rem;
+            font-size: 1.25rem;
+            background: #191913;
+            color: white;
+            border-radius: 1rem;
+            border: none;
+        }
+        #msg {
+            font-size: 8vmin;
+        }
+        .msg-container {
+            height: auto;
+        }
+        .hide {
+            display: none;
         }
     }
 }
